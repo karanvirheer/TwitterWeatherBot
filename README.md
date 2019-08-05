@@ -12,5 +12,5 @@ A Twitter bot that utilizes the OpenWeatherMaps API to tweet out weather updates
   4. Run the code and watch your weather updates begin tweeting out
   
 # Documentation
-[Tweepy documentation can be found here](http://docs.tweepy.org/en/v3.5.0/api.html)
-[OpenWeatherMaps API can be found here](https://openweathermap.org/api)
+  1. [Tweepy documentation can be found here](http://docs.tweepy.org/en/v3.5.0/api.html)
+  2. [OpenWeatherMaps API can be found here](https://openweathermap.org/api)
