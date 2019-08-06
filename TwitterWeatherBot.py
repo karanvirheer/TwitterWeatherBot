@@ -26,37 +26,6 @@ api = tweepy.API(auth)
 user = api.me()
 print(spacing + "Successfully connected to: " + user.name)
 
-# WEATHER API -------------------------------------------------------------
-
-# If two cities with same name:
-# Ex. [city, country initial] -> [London, GB] or [London, CA]
-# Otherwise just put city name as is
-# Ex. [Toronto]
-city = 'INSERT CITY NAME - without brackets!'
-
-# Get the API KEY from the OpenWeatherMaps website: https://home.openweathermap.org/api_keys
-# You have to create an account to get the API key
-weather_maps_api_key = 'Paste API Key Here'
-
-url = 'http://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units=metric'.format(
-    city, weather_maps_api_key)
-
-res = requests.get(url)
-
-data = res.json()
-
-# Uncomment the print statement below to see the weather data in the console
-# pprint(data)
-
-temp = data['main']['temp']
-wind_speed = data['wind']['speed']
-
-description = data['weather'][0]['description']
-
-print_temp = 'Temperature: {}°C'.format(int(temp))
-print_wind_speed = 'Wind Speed: {} m/s'.format(wind_speed)
-print_weather_cond = 'Weather Conditions: {}'.format(description.capitalize())
-
 
 def get_date_time():
     now = datetime.now()
@@ -64,6 +33,37 @@ def get_date_time():
 
 
 def print_weather_status():
+    # WEATHER API -------------------------------------------------------------
+
+    # If two cities with same name:
+    # Ex. [city, country initial] -> [London, GB] or [London, CA]
+    # Otherwise just put city name as is
+    # Ex. [Toronto]
+    city = 'INSERT CITY NAME - without brackets!'
+
+    # Get the API KEY from the OpenWeatherMaps website: https://home.openweathermap.org/api_keys
+    # You have to create an account to get the API key
+    weather_maps_api_key = 'Paste API Key Here'
+
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units=metric'.format(
+        city, weather_maps_api_key)
+
+    res = requests.get(url)
+
+    data = res.json()
+
+    # Uncomment the print statement below to see the weather data in the console
+    # pprint(data)
+
+    temp = data['main']['temp']
+    wind_speed = data['wind']['speed']
+
+    description = data['weather'][0]['description']
+
+    print_temp = 'Temperature: {}°C'.format(int(temp))
+    print_wind_speed = 'Wind Speed: {} m/s'.format(wind_speed)
+    print_weather_cond = 'Weather Conditions: {}'.format(description.capitalize())
+    
     status = 'Latest Update @ ' + get_date_time() + ' EST'
     print('STATUS HAS BEEN UPDATED')
 
